@@ -1,0 +1,41 @@
+body {
+    background-color: #d9dcd6;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1rem;
+    padding-right: 4rem;
+    font-family: 'Courier New';
+    padding-top: 1.25rem;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 2rem;
+    padding-top: 5rem;
+}
+
+.question {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    grid-auto-rows: 100px;
+    justify-items: stretch;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+button {
+    background-color: forestgreen;
+    text-align: center;
+    color: white;
+}
+
+button:hover {
+    background-color: rgba(34, 139, 34, 0.724);
+}
+
