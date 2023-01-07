@@ -2,40 +2,94 @@ body {
     background-color: #d9dcd6;
 }
 
-header{
+main {
     display: flex;
-    justify-content: space-between;
-    padding-left: 1rem;
-    padding-right: 4rem;
-    font-family: 'Courier New';
-    padding-top: 1.25rem;
+    justify-content: center;
 }
 
-h1 {
+header{
+    background-color: #13293df1;
+    min-height: 13vh;
+    box-shadow: 0 0 2.5px;
+
+}
+
+header h1 {
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+}
+
+#headerBar {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Courier New';
+}
+
+header a,p{
+    color: white;
+    font-size: 115%;
+}
+
+header a{
+    padding-top: 1rem;
+}
+
+.container {
+    max-width: 85%;
+    min-width: 85%;
+    background: white;
+    min-height: 50vh;
+    padding-top: 2.5rem;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 0 10px;
+}
+
+.container h1 {
     display: flex;
     justify-content: center;
     padding-bottom: 2rem;
     padding-top: 5rem;
 }
 
-.question {
-    grid-area: main;
+.answerGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 30px;
+    margin: 20px 0;
     grid-auto-rows: 100px;
     justify-items: stretch;
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
 }
 
 button {
     background-color: forestgreen;
     text-align: center;
     color: white;
+    border-radius: 15px;
+    box-shadow: 0 2px black;
 }
+
+
 
 button:hover {
-    background-color: rgba(34, 139, 34, 0.724);
+    background-color: rgba(34, 139, 34, 0.799);
 }
 
+button:active {
+    transform: translateY(3.5px);
+    color: black;
+}
+
+.button.corect {
+    color: black;
+    --hue: var(--hue-correct);
+}
+
+.button.wrong {
+    color: black;
+    --hue: var(--hue-wrong);
+}
