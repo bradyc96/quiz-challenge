@@ -10,7 +10,7 @@ main {
 header{
     background-color: #13293df1;
     min-height: 13vh;
-    box-shadow: 0 0 2.5px;
+    box-shadow: 0 0 2.5px 2px;
 
 }
 
@@ -27,6 +27,7 @@ header h1 {
     font-family: 'Courier New';
 }
 
+
 header a,p{
     color: white;
     font-size: 115%;
@@ -40,7 +41,7 @@ header a{
     max-width: 85%;
     min-width: 85%;
     background: white;
-    min-height: 50vh;
+    min-height: 55vh;
     padding-top: 2.5rem;
     border-radius: 15px;
     padding: 10px;
@@ -57,12 +58,13 @@ header a{
 .answerGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 30px;
+    grid-gap: 25px;
     margin: 20px 0;
     grid-auto-rows: 100px;
     justify-items: stretch;
     padding-left: 4rem;
     padding-right: 4rem;
+    margin-top: 4rem;
 }
 
 button {
@@ -76,20 +78,38 @@ button {
 
 
 button:hover {
-    background-color: rgba(34, 139, 34, 0.799);
+    background-color: rgba(34, 139, 34, 0.671);
+}
+
+#btn1Correct:hover, #btn2Correct:hover, #btn3Correct:hover, #btn4Corrrect:hover {
+    background-color: rgba(34, 139, 34, 0.671);
 }
 
 button:active {
-    transform: translateY(3.5px);
+    transform: translateY(4px);
     color: black;
 }
 
-.button.corect {
-    color: black;
-    --hue: var(--hue-correct);
+#btn1:active, #btn2:active, #btn3:active, #btn4:active {
+    background-color: rgba(255, 0, 0, 0.857);
+    color: white;
 }
 
-.button.wrong {
+#btn1Correct:active, #btn2Correct:active, #btn3Correct:active, #btn4Correct:active {
+    background-color: yellow;
     color: black;
-    --hue: var(--hue-wrong);
+}
+
+.startBtnClass {
+    font-size: 7rem;
+    font-weight: bold;
+}
+
+.start {
+    display: flex;
+    justify-content: center;
+}
+
+.hide {
+    display: none;
 }

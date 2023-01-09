@@ -1,15 +1,19 @@
+
+
+
+
 var questions = [{ 
-    question: "Which is number four", 
+    question: "Insert question here (?)", 
     answers: ["1", "2", "3", "4"],
     correctAnswer: "4",
 }]
 var currentQuestion = 0
 function displayQuestion(i){
     document.getElementById("question").textContent = questions[i].question
-    document.getElementById("answer1").textContent = questions[i].answers[0]
-    document.getElementById("answer2").textContent = questions[i].answers[1]
-    document.getElementById("answer3").textContent = questions[i].answers[2]
-    document.getElementById("answer4").textContent = questions[i].answers[3]
+    document.getElementById("btn1").textContent = questions[i].answers[0]
+    document.getElementById("btn2Correct").textContent = questions[i].answers[1]
+    document.getElementById("btn3").textContent = questions[i].answers[2]
+    document.getElementById("btn4").textContent = questions[i].answers[3]
 }
 
 
@@ -35,7 +39,7 @@ function doSomething(){
     console.log('something')
 }
 
-document.querySelector('.container').addEventListener('click', doSomething)
+document.querySelector('.answerGrid').addEventListener('click', doSomething)
 
 
 //Start Game button function
