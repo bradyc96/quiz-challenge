@@ -2,6 +2,7 @@ body {
     background-color: #d9dcd6;
 }
 
+
 main {
     display: flex;
     justify-content: center;
@@ -9,7 +10,7 @@ main {
 
 header{
     background-color: #13293df1;
-    min-height: 13vh;
+    min-height: 10vh;
     box-shadow: 0 0 2.5px 2px;
 
 }
@@ -18,7 +19,7 @@ header h1 {
     color: white;
     display: flex;
     justify-content: center;
-    padding-top: 2rem;
+    padding-top: 1rem;
 }
 
 #headerBar {
@@ -37,23 +38,26 @@ header a{
     padding-top: 1rem;
 }
 
+
 .container {
-    max-width: 85%;
-    min-width: 85%;
+    max-width: 70%;
+    min-width: 70%;
     background: white;
-    min-height: 55vh;
-    padding-top: 2.5rem;
+    min-height: 65vh;
     border-radius: 15px;
     padding: 10px;
-    box-shadow: 0 0 10px;
+    box-shadow: 0 0 9px;
+    margin-top: 6rem;
 }
+
 
 .container h1 {
     display: flex;
     justify-content: center;
     padding-bottom: 2rem;
-    padding-top: 5rem;
+    padding-top: 3rem;
 }
+
 
 .answerGrid {
     display: grid;
@@ -64,7 +68,7 @@ header a{
     justify-items: stretch;
     padding-left: 4rem;
     padding-right: 4rem;
-    margin-top: 4rem;
+    margin-top: 7rem;
 }
 
 button {
@@ -81,35 +85,120 @@ button:hover {
     background-color: rgba(34, 139, 34, 0.671);
 }
 
-#btn1Correct:hover, #btn2Correct:hover, #btn3Correct:hover, #btn4Corrrect:hover {
-    background-color: rgba(34, 139, 34, 0.671);
-}
 
 button:active {
     transform: translateY(4px);
     color: black;
 }
 
-#btn1:active, #btn2:active, #btn3:active, #btn4:active {
+button.btn:active {
     background-color: rgba(255, 0, 0, 0.857);
     color: white;
 }
 
-#btn1Correct:active, #btn2Correct:active, #btn3Correct:active, #btn4Correct:active {
-    background-color: yellow;
-    color: black;
-}
+
 
 .startBtnClass {
-    font-size: 7rem;
+    font-size: 3rem;
+    min-height: 65vh;
     font-weight: bold;
 }
 
+
 .start {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .hide {
     display: none;
+}
+
+
+#currentScore p {
+    color: black;
+    display: flex;
+    justify-content: center;
+    display: flex;
+    padding-top: 6rem;
+}
+
+#scoreColumn {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+button#scoreSaver {
+    background-color: #a98468;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 6px;
+    box-shadow: 0 0px black;
+    width: 5rem;
+    height: 1.5rem;
+    padding-right: 5px;
+}
+
+
+
+button#scoreSaver:active {
+    transform: translatex(30px);
+    color: white;
+}
+
+.input-group {
+    transform: rotate(-0.25turn);
+    margin-top: 5.5rem;
+    
+}
+
+#nameInput {
+    height: 3.5rem;
+    width: 12rem;
+    text-indent: 102px;
+    border-right: 1px;
+    border-radius: 7px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+
+#currentScore p {
+    margin-top: 12rem;
+    font-size: 125%;
+}
+
+#endScoreHeader {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+
+.endGame {
+    min-width: 42rem;
+    background: white;
+    min-height: 80vh;
+    border-radius: 7px;
+    box-shadow: 0 0 6px;
+    margin-top: 3rem;
+}
+
+
+
+.nameInput {
+    text-size-adjust: 200%;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+
+#playAgainButton  {
+margin-top: 62rem;
+display: flex;
+justify-content: end;
+position: absolute;
+border-radius: 5px;
+}
+
+footer {
+    height: 0vh;
 }

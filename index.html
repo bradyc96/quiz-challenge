@@ -9,35 +9,68 @@
 </head>
 
 <body>
+
     <header>
         <h1>Quiz!</h1>
         <div id = "headerBar">
-            <a href="">View High Scores</a>
+            <a href="#" id="scoreViewer">View High Scores</a>
             <div id = timer>
                 <p id="countdown"></p>
             </div>
         </div>
     </header>
-    <br>
-    <br>
-    <br>
+ 
 
     <main>
+        <!-- <img src="\assets\images\oak.jpg" id="backgroundImage"> -->
+
         <div class="container">
-            <!-- <div class="hide"> -->
-            <div id = "questionCard"><h1 id = "question">?</h1></div>
-                <div class="answerGrid">
-                    <button id="btn1">?</button>
-                    <button id="btn2Correct">?</button>
-                    <button id="btn3">?</button>
-                    <button id="btn4">?</button>
+            <div id = 'questionCard' class="hide test" >
+                <h1 id = "question">?</h1>
+                <div id = "answerBtns" class = "answerGrid">
+                    <button id="btn1" onclick="chooseAnswer(event)">?</button>
+                    <button id="btn2" onclick="chooseAnswer(event)">?</button>
+                    <button id="btn3" onclick="chooseAnswer(event)">?</button>
+                    <button id="btn4" onclick="chooseAnswer(event)">?</button>
                 </div>
-            <!-- </div> -->
+                <div id = "currentScore">
+                    <p>Current Score: +<span id ='currentScoreSpan'>0</span></p>
+                </div>
+            </div>
             <div class = "start">
                 <button id = "startBtn" class = startBtnClass>START</button>
             </div>
         </div>
+        <div class="endGame hide">
+            <div id = "endScoreHeader">
+                <h2>Final Score: +<span id ='endScoreSpan'>0</span></h2>
+                <button id="playAgainButton">Play Again</button>
+            </div>
+            <div id="scoreColumn">
+                <div class="input-group">
+                    <input id = "nameInput" type="text" placeholder="Enter Name">
+                    <button id="scoreSaver">Save</button>
+                </div>
+                <ol id = 'highScoreList'></ol>
+            </div>
+            <div id="restart">
+                <!-- <button id="playAgainButton">Play Again</button> -->
+            </div>
+        </div>
     </main>
+    <footer>
+        <div id="sound hide">
+            <div id="bistro">
+                <audio  id="song" src = 'Sound\Bistro Fada.mp3'></audio>
+            </div>
+            <div id="cork">
+                <audio  id="corkAudio" src = 'Sound\Cork.mp3'></audio>
+            </div>
+            <div id="ding">
+                <audio  id="correctAudio" src = 'Sound\Ding.mp3'></audio>
+            </div>
+        </div>
+    </footer>
 
 <script src="assets/js/script.js"></script>
 </body>
