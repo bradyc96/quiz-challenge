@@ -51,7 +51,7 @@ header a{
     max-width: 70%;
     min-width: 70%;
     background: rgb(254, 250, 238);
-    min-height: 65vh;
+    min-height: 70vh;
     border-radius: 15px;
     padding: 10px;
     box-shadow: 0 0 9px;
@@ -113,7 +113,7 @@ button:active {
 
 .startBtnClass {
     font-size: 3rem;
-    min-height: 64.5vh;
+    min-height: 69.5vh;
     font-weight: bold;
     background: forestgreen;
 }
