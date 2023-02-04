@@ -22,7 +22,6 @@
  
 
     <main>
-        <!-- <img src="\assets\images\oak.jpg" id="backgroundImage"> -->
 
         <div class="container">
             <div id = 'questionCard' class="hide test" >
@@ -44,18 +43,24 @@
         <div class="endGame hide">
             <div id = "endScoreHeader">
                 <h2>Final Score: +<span id ='endScoreSpan'>0</span></h2>
-                <button id="playAgainButton">Play Again</button>
-            </div>
-            <div id="scoreColumn">
+                <p id="instructions">Write your name on the bottle and pop the cork to save your score.</p>
                 <div class="input-group">
                     <input id = "nameInput" type="text" placeholder="Enter Name">
                     <button id="scoreSaver">Save</button>
                 </div>
                 <ol id = 'highScoreList'></ol>
+                <button id="playAgainButton">Play Again</button>
             </div>
-            <div id="restart">
-                <!-- <button id="playAgainButton">Play Again</button> -->
+            <div id="scoreColumn">
+                <!-- <div class="input-group">
+                    <input id = "nameInput" type="text" placeholder="Enter Name">
+                    <button id="scoreSaver">Save</button>
+                </div> -->
+                <!-- <div id="list">
+                    <ol id = 'highScoreList'></ol>
+                </div> -->
             </div>
+
         </div>
     </main>
     <footer>
@@ -68,6 +73,9 @@
             </div>
             <div id="ding">
                 <audio  id="correctAudio" src = 'Sound\Ding.mp3'></audio>
+            </div>
+            <div id="clack">
+                <audio  id="clackAudio" src = 'Sound\clack.mp3'></audio>
             </div>
         </div>
     </footer>

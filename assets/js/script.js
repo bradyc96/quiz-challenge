@@ -12,19 +12,24 @@ let submitScoreButton = document.getElementById('scoreSaver');
 let firstContainerEl = document.querySelector('.container');
 let formEl = document.querySelector('.input-group');
 let playAgainBtnEl = document.getElementById('playAgainButton');
-let orderedListEL = document.getElementById('highScoreList');
 let endScoreEl = document.getElementById('endScoreSpan');
+//Sound Elements
 let dingEl = document.getElementById('correctAudio')
 let corkEl = document.getElementById('corkAudio')
 let songEl = document.getElementById('song')
+let clackEl = document.getElementById('clack')
+
 let timeLeft = 185;
+let answerBtnIndividual = document.getElementById('btn1', 'btn2', 'btn3', 'btn4')
 
 
+//Saving variables
+let scoreName = document.getElementById('nameInput').value;
+let orderedListEL = document.getElementById('highScoreList');
+let scoreGroup = JSON.parse(localStorage.getItem('highScores'))||[]
 
-// let scoreGroup =[{
-//   name:
-//   score:
-// }]
+// let orderedListEL = JSON.parse(localStorage.getItem(orderedListEL));
+
 
 
 
@@ -99,21 +104,6 @@ function viewScores(){
 }
 
 
-
-
-// Game Timer
-// let downloadTimer = setInterval(function(){
-// if(timeLeft <= 0){
-//   clearInterval(downloadTimer);
-//   document.getElementById("countdown").innerHTML = "Finished!";
-//   endGame();
-// } else {
-//   document.getElementById("countdown").innerHTML = timeLeft + " seconds remaining";
-// }
-// timeLeft -= 1;
-// }, 1000);
-
-
 //End Game Function
 function endGame() {
   document.querySelector(".start").style.display="none"
@@ -140,21 +130,41 @@ function playAgain () {
   endGameEl.classList.add('hide')
   currentQuestion = 0
   currentScoreEl.textContent = 0;
+  score = 0
   startGame()
   songEl.currentTime = 0
+  formEl.style.transform = 'rotate(-90deg)';
+  formEl.style.marginRight = '-5%';
+  formEl.style.marginBottom = '-35%';
 }
 
 //Save high scores
 submitScoreButton.addEventListener('click', submittedScore)
 
 function submittedScore() {
-  corkEl.play()
-  let scoreName = document.getElementById('nameInput').value;
-  localStorage.setItem(scoreName, currentScoreEl.textContent)
+    corkEl.play()
+    let scoreName = document.getElementById('nameInput').value;
+    let currentScore = currentScoreEl.textContent
+    scoreGroup.push({
+      Name: scoreName,
+      Score: currentScore
+    })
+    localStorage.setItem('highScores', JSON.stringify(scoreGroup))
 
 
-  
-}
+    orderedListEL.innerText = scoreGroup;
+    console.log(scoreName)
+
+    console.log(currentScoreEl)
+
+    console.log(orderedListEL)
+
+    console.log(String(scoreGroup))
+
+  }
+
+
+
 
 //Display Score List in OL
 
@@ -173,93 +183,105 @@ submitScoreButton.addEventListener('mouseup', rotateForm)
 function rotateForm() {
   formEl.style.transform = 'rotate(28deg)';
   formEl.style.transitionDelay = '0.45s';
-  formEl.style.marginRight = '25%';
-  formEl.style.transitionDuration = '1.2s'
-  formEl.style.marginTop = '5%';
+  formEl.style.marginRight = '5%';
+  formEl.style.transitionDuration = '1.5s'
+  formEl.style.marginTop = '15%';
+}
+
+
+//Answer button hover effect
+
+
+answerBtnIndividual.addEventListener('onmouseover', playClack)
+function playClack() {
+  clackEl.play()
+  // clackEl.volume = 4;
+  console.log('clack')
 }
 
 
 
+  
 
 
 
 // Question #1
 var questions = [{ 
-  question: "Insert question here (?)", 
-  answers: ["1", "2", "3", "4"],
-  correctAnswer: "4",
+  question: "What is the volume of an average bottle of wine?", 
+  answers: ["500mL", "750mL", "1000mL", "1 Gallon"],
+  correctAnswer: "750mL",
 },
 //Question 2
 { 
-  question: "Insert question two (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
+  question: "What are the five red varietals grown in the Bordeaux region?", 
+  answers: ["Pinot Noir, Syrah, Cabernet Franc, Tempranillo, and Grenache", "Cabernet Sauvignon,  Cabernet Franc, Semillon, Merlot, and Sangiovese", "Cabernet Sauvignon, Sangiovese, Merlot, Mouvedre, and Gewürztraminer", "Cabernet Sauvignon, Merlot, Cabernet Franc, Petit Verdot, and Malbec"],
+  correctAnswer: "Cabernet Sauvignon, Merlot, Cabernet Franc, Petit Verdot, and Malbec",
 },
 //Question 3
 { 
-  question: "Insert question three (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
+  question: "What are tannins?", 
+  answers: ["The legs found in red wine", "Oak used in the wine making process", "Chemical substances that make up alcohol", "Chemical substances found in all plant matter"],
+  correctAnswer: "Chemical substances found in all plant matter",
 },
 //Question 4
 { 
-  question: "Insert question four (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
+  question: "What is the purpose of swirling a wine glass?", 
+  answers: ["Breaks down natural sugars, lowering the wine's bitterness", "Breaks down alcohol", "Oxiginates the wine, seperating aromas and enriching taste", "To look really cool"],
+  correctAnswer: "Oxiginates the wine, seperating aromas and enriching taste",
 },
 //Question 5
 { 
-  question: "Insert question five (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
+  question: "What is an example of high tannin content?", 
+  answers: ["Long steeped tea", "The burn from strong whiskey", "A dry wine", "Sugary coating from sweets"],
+  correctAnswer: "Long steeped tea",
 },
 //Question 6
 { 
-  question: "Insert question six (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
+  question: "What is a 'corked' wine?", 
+  answers: ["Wine that has been opened for too long and has gone bad", "Wine corks with a chemical compound called TCA that taints the bottle", "Overfermented wine leaving a foul aroma and taste", "Any wine that doesn't taste good"],
+  correctAnswer: "Wine corks with a chemical compound called TCA that taints the bottle",
 },
 //Question 7
 { 
-  question: "Insert question seven (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
+  question: "What is the name of the method of growing grapes that takes into account the phases of the moon and commonly includes burrying cow horns in the vinyard?", 
+  answers: ["Biodynamic farming", "Lunar viticulture", "Cosmic viticulture", "Khonsu Oenology"],
+  correctAnswer: "Biodynamic farming",
 },
 //Question 8
 { 
-  question: "Insert question eight (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
+  question: "What is sparkling wine in Spain called?", 
+  answers: ["Sekt", "Champagne", "Cava", "Prosecco"],
+  correctAnswer: "Cava",
 },
 //Question 9
 { 
-  question: "Insert question nine (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
+  question: "How many gallons does the standard wine barrel contain?", 
+  answers: ["15", "30", "60", "100"],
+  correctAnswer: "60",
 },
 //Question 10
 { 
-  question: "Insert question ten (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
+  question: "What is malolactic fermentation?", 
+  answers: ["Process in winemaking for converting wine into alcohol", "Process in winemaking for bottling", "Process in winemaking for siphoning wines from one tank or barrel to the next in hopes of leaving the precipitates and solids called pomace in the bottom of the tank", "Process in winemaking where tart malic acid from grape must is converted to softer and creamier latic acid"],
+  correctAnswer: "Process in winemaking where tart malic acid from grape must is converted to softer and creamier latic acid",
 },
 //Question 11
 { 
-  question: "Insert question eleven (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
+  question: "Where is champagne made?", 
+  answers: ["France", "Italy", "America", "All of the above"],
+  correctAnswer: "France",
 },
 //Question 12
 { 
-  question: "Insert question 12 (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
+  question: "Where is prosecco made?", 
+  answers: ["France", "Italy", "America", "All of the above"],
+  correctAnswer: "Italy",
 },
 //Question 13
 { 
-  question: "Insert question 13 (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
+  question: "Malbec originated in which country?", 
+  answers: ["France", "Italy", "Austria", "Spain"],
+  correctAnswer: "France",
 },
 //Question 14
 { 
