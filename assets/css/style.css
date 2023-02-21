@@ -23,7 +23,7 @@ header h1 {
     color: white;
     display: flex;
     justify-content: center;
-    padding-top: 1rem;
+    padding-top: 1%;
 }
 
 #headerBar {
@@ -51,9 +51,10 @@ header a{
     max-width: 70%;
     min-width: 70%;
     background: rgb(254, 250, 238);
-    min-height: 70vh;
+    min-height: 68vh;
+    max-height: 68vh;
     border-radius: 15px;
-    padding: 10px;
+    padding: 1vh;
     box-shadow: 0 0 9px;
     margin-top: 6.5rem;
     font-size: 125%;
@@ -84,7 +85,6 @@ header a{
 }
 
 button {
-    /* background-color: forestgreen; */
     background-color: #13293df1;
     text-align: center;
     color: white;
@@ -93,7 +93,7 @@ button {
 }
 
 #btn1,#btn2,#btn3,#btn4 {
-    /* font-weight: bold; */
+    font-weight: 200;
     font-size: 110%;
     font-family: 'Times New Roman', Times, serif;
 }
@@ -113,7 +113,7 @@ button:active {
 
 .startBtnClass {
     font-size: 3rem;
-    min-height: 69.5vh;
+    min-height: 67.5vh;
     font-weight: bold;
     background: forestgreen;
 }
@@ -133,8 +133,6 @@ button:active {
     color: black;
     display: flex;
     justify-content: center;
-    display: flex;
-    padding-top: 2rem;
 }
 
 #scoreColumn {
@@ -202,11 +200,9 @@ button#scoreSaver:active {
 #playAgainButton  {
 display: flex;
 justify-content: end;
-position: absolute;
 border-radius: 5px;
 background-color: forestgreen;
 margin-top: 45rem;
-display: flex;
 align-self: center;
 margin-left: 18rem
 }

@@ -24,7 +24,7 @@
     <main>
 
         <div class="container">
-            <div id = 'questionCard' class="hide test" >
+            <div id = 'questionCard' class="hide" >
                 <h1 id = "question">?</h1>
                 <div id = "answerBtns" class = "answerGrid">
                     <button id="btn1" onclick="chooseAnswer(event)">?</button>
@@ -48,9 +48,14 @@
                     <input id = "nameInput" type="text" placeholder="Enter Name">
                     <button id="scoreSaver">Save</button>
                 </div>
-                <ol id = 'highScoreList'></ol>
-                <button id="playAgainButton">Play Again</button>
             </div>
+                <div id="highScoreSection">
+                    <h3>Highscores: </h3>
+                    <ol id = 'highScoreList'></ol>
+                </div>
+                
+                <button id="playAgainButton">Play Again</button>
+           
             <div id="scoreColumn">
                 <!-- <div class="input-group">
                     <input id = "nameInput" type="text" placeholder="Enter Name">

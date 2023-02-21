@@ -26,8 +26,8 @@ let answerBtnIndividual = document.getElementById('btn1', 'btn2', 'btn3', 'btn4'
 //Saving variables
 let scoreName = document.getElementById('nameInput').value;
 let orderedListEL = document.getElementById('highScoreList');
-let scoreGroup = JSON.parse(localStorage.getItem('highScores'))||[]
-
+// let scoreGroup = JSON.parse(localStorage.getItem('highScores'))||[]
+let scoreGroup=[]
 // let orderedListEL = JSON.parse(localStorage.getItem(orderedListEL));
 
 
@@ -140,39 +140,35 @@ function playAgain () {
 
 //Save high scores
 submitScoreButton.addEventListener('click', submittedScore)
-
 function submittedScore() {
     corkEl.play()
     let scoreName = document.getElementById('nameInput').value;
-    let currentScore = currentScoreEl.textContent
+    let currentScore = currentScoreEl.innerText
     scoreGroup.push({
-      Name: scoreName,
-      Score: currentScore
+      name: scoreName,
+      score: currentScore
     })
-    localStorage.setItem('highScores', JSON.stringify(scoreGroup))
+    localStorage.setItem("highScores", JSON.stringify(scoreGroup))
 
+    let highScoreStorage = [localStorage.getItem("highScores")]
+    highScoreStorage.push(JSON.stringify(scoreGroup))
+    console.log(scoreGroup)
+    console.log(currentScore)
+    
 
-    orderedListEL.innerText = scoreGroup;
+    orderedListEL.innerText = JSON.stringify(scoreGroup);
+    // highScoreStorage.forEach(function(element){
+      // JSON.stringify(this)
+      // console.log(this)
+      console.log(element)
+    let listItem = document.createElement("li")
+    listItem.innerText = element.name + " " + element.score
+    // listItem.innerText = element.name + " " + element.score
+    // orderedListEL.appendChild(listItem)
+    // })
     console.log(scoreName)
 
-    console.log(currentScoreEl)
-
-    console.log(orderedListEL)
-
-    console.log(String(scoreGroup))
-
   }
-
-
-
-
-//Display Score List in OL
-
-
-
-//New container for viewing scores
-// --> Pause time in screen while viewing
-// --> Go back to game function/button
 
 
 
@@ -184,7 +180,7 @@ function rotateForm() {
   formEl.style.transform = 'rotate(28deg)';
   formEl.style.transitionDelay = '0.45s';
   formEl.style.marginRight = '5%';
-  formEl.style.transitionDuration = '1.5s'
+  formEl.style.transitionDuration = '1.2s'
   formEl.style.marginTop = '15%';
 }
 
@@ -290,65 +286,65 @@ var questions = [{
   correctAnswer: "b",
 },
 //Question 15
-{ 
-  question: "Insert question 15 (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
-},
-//Question 16
-{ 
-  question: "Insert question 16 (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
-},
-//Question 17
-{ 
-  question: "Insert question 17 (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
-},
-//Question 18
-{ 
-  question: "Insert question 18 (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
-},
-//Question 19
-{ 
-  question: "Insert question 19 (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
-},
-//Question 20
-{ 
-  question: "Insert question 20 (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
-},
-//Question 21
-{ 
-  question: "Insert question 21 (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
-},
-//Question 22
-{ 
-  question: "Insert question 22 (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
-},
-//Question 23
-{ 
-  question: "Insert question 23 (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
-},
-//Question 24
-{ 
-  question: "Insert question 24 (?)", 
-  answers: ["a", "b", "c", "d"],
-  correctAnswer: "b",
-},
+// { 
+//   question: "Insert question 15 (?)", 
+//   answers: ["a", "b", "c", "d"],
+//   correctAnswer: "b",
+// },
+// //Question 16
+// { 
+//   question: "Insert question 16 (?)", 
+//   answers: ["a", "b", "c", "d"],
+//   correctAnswer: "b",
+// },
+// //Question 17
+// { 
+//   question: "Insert question 17 (?)", 
+//   answers: ["a", "b", "c", "d"],
+//   correctAnswer: "b",
+// },
+// //Question 18
+// { 
+//   question: "Insert question 18 (?)", 
+//   answers: ["a", "b", "c", "d"],
+//   correctAnswer: "b",
+// },
+// //Question 19
+// { 
+//   question: "Insert question 19 (?)", 
+//   answers: ["a", "b", "c", "d"],
+//   correctAnswer: "b",
+// },
+// //Question 20
+// { 
+//   question: "Insert question 20 (?)", 
+//   answers: ["a", "b", "c", "d"],
+//   correctAnswer: "b",
+// },
+// //Question 21
+// { 
+//   question: "Insert question 21 (?)", 
+//   answers: ["a", "b", "c", "d"],
+//   correctAnswer: "b",
+// },
+// //Question 22
+// { 
+//   question: "Insert question 22 (?)", 
+//   answers: ["a", "b", "c", "d"],
+//   correctAnswer: "b",
+// },
+// //Question 23
+// { 
+//   question: "Insert question 23 (?)", 
+//   answers: ["a", "b", "c", "d"],
+//   correctAnswer: "b",
+// },
+// //Question 24
+// { 
+//   question: "Insert question 24 (?)", 
+//   answers: ["a", "b", "c", "d"],
+//   correctAnswer: "b",
+// },
 //Question 25
 { 
   question: "Insert question 25 (?)", 
